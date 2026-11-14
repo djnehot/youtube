@@ -13,11 +13,13 @@
 <meta property="og:image" content="https://i.ytimg.com/vi/Xn0YjoX2THo/maxresdefault.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0b0b0c">
-<link rel="icon" href="https://yt3.ggpht.com/Fxr97Ww85dc_Ak-t968Y_H3WG80iH3r_Sl_cJ1jxItUqoXAmTmnhfidOr13hTNaFBCENFVAHnLE=s800-c-k-c0x00ffffff-no-rj">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="assets/logo.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "DJ Ne-Hot", "url": "https://djnehot.github.io/youtube/", "image": "https://yt3.ggpht.com/Fxr97Ww85dc_Ak-t968Y_H3WG80iH3r_Sl_cJ1jxItUqoXAmTmnhfidOr13hTNaFBCENFVAHnLE=s800-c-k-c0x00ffffff-no-rj", "jobTitle": "DJ", "sameAs": ["https://www.youtube.com/@djne-hot"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "DJ Ne-Hot", "url": "https://djnehot.github.io/youtube/", "image": "https://djnehot.github.io/youtube/assets/logo.webp", "jobTitle": "DJ", "sameAs": ["https://www.youtube.com/@djne-hot"]}</script>
 <style>
 :root{
   --bg:#0b0b0c; --surface:#141416; --surface-2:#1b1b1e; --line:#26262a;
@@ -52,7 +54,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .nav.solid{background:rgba(11,11,12,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom-color:var(--line)}
 .nav-in{display:flex;align-items:center;gap:28px;height:68px}
 .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:22px;letter-spacing:1.5px}
-.brand img{width:34px;height:34px;border-radius:50%;object-fit:cover}
+.brand img{height:56px;width:auto}
+/* logo has its own dark backdrop: fade its edges into the page */
+.logo-fade{-webkit-mask-image:radial-gradient(closest-side,#000 70%,transparent 100%);mask-image:radial-gradient(closest-side,#000 70%,transparent 100%)}
+.hero h1.hero-logo{margin:6px 0 4px -4%;line-height:0;font-size:0;white-space:normal}
+.hero-logo img{width:min(560px,108%);height:auto}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .nav-links{display:flex;gap:26px;margin-left:auto;font-size:14px;font-weight:500;color:var(--muted)}
 .nav-links a:hover{color:var(--text)}
 .nav .btn{height:40px;padding:0 18px;font-size:14px}
@@ -139,7 +146,7 @@ section.block{padding:88px 0 0}
 
 /* ── about ── */
 .about{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(28px,5vw,56px)}
-.about img{width:180px;height:180px;border-radius:50%;object-fit:cover;border:3px solid var(--line)}
+.about img{width:340px;height:auto}
 .about h2{font-family:var(--display);font-weight:400;font-size:clamp(34px,5vw,48px);letter-spacing:1px;text-transform:uppercase;line-height:1;margin:12px 0 16px}
 .about-text{color:var(--muted);max-width:640px}
 .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
@@ -183,7 +190,8 @@ dialog.vertical .modal-frame{aspect-ratio:9/16;max-height:82vh;margin:0 auto}
   .rail{grid-auto-columns:160px}
   .arrows{display:none}
   .about{grid-template-columns:1fr;text-align:center;gap:24px}
-  .about img{width:120px;height:120px;margin:0 auto}
+  .about img{width:260px;margin:0 auto}
+  .hero h1.hero-logo{margin-left:-6%}
   .about-text{margin:0 auto}
   .links{justify-content:center}
   section.block{padding-top:64px}
@@ -195,7 +203,7 @@ dialog.vertical .modal-frame{aspect-ratio:9/16;max-height:82vh;margin:0 auto}
 
 <header class="nav" id="nav">
   <div class="wrap nav-in">
-    <a class="brand" href="#top"><img src="https://yt3.ggpht.com/Fxr97Ww85dc_Ak-t968Y_H3WG80iH3r_Sl_cJ1jxItUqoXAmTmnhfidOr13hTNaFBCENFVAHnLE=s800-c-k-c0x00ffffff-no-rj" alt="" width="34" height="34">DJ NE-HOT</a>
+    <a class="brand" href="#top" aria-label="DJ Ne-Hot — ana sayfa"><img class="logo-fade" src="assets/logo-sm.webp" alt="DJ Ne-Hot" width="84" height="56"></a>
     <nav class="nav-links" id="navLinks">
       <a href="#son">Son Video</a>
       <a href="#populer">Popüler</a>
@@ -214,7 +222,7 @@ dialog.vertical .modal-frame{aspect-ratio:9/16;max-height:82vh;margin:0 auto}
     <div class="wrap hero-grid">
       <div>
         <span class="eyebrow">Resmi Web Sitesi</span>
-        <h1>DJ Ne-Hot</h1>
+        <h1 class="hero-logo"><img class="logo-fade" src="assets/logo.webp" alt="DJ Ne-Hot" width="1200" height="800"><span class="sr-only">DJ Ne-Hot</span></h1>
         <p class="tagline">Müzik · Ritim · Sokak</p>
         <div class="cta">
           <button class="btn btn-primary" id="heroPlay">
@@ -496,7 +504,7 @@ dialog.vertical .modal-frame{aspect-ratio:9/16;max-height:82vh;margin:0 auto}
   <section class="block" id="hakkinda">
     <div class="wrap">
       <div class="about">
-        <img src="https://yt3.ggpht.com/Fxr97Ww85dc_Ak-t968Y_H3WG80iH3r_Sl_cJ1jxItUqoXAmTmnhfidOr13hTNaFBCENFVAHnLE=s800-c-k-c0x00ffffff-no-rj" alt="DJ Ne-Hot" width="180" height="180" loading="lazy">
+        <img class="logo-fade" src="assets/logo.webp" alt="DJ Ne-Hot logo" width="1200" height="800" loading="lazy">
         <div>
           <span class="eyebrow">Hakkında</span>
           <h2>DJ Ne-Hot</h2>
@@ -511,9 +519,9 @@ dialog.vertical .modal-frame{aspect-ratio:9/16;max-height:82vh;margin:0 auto}
 
 <footer>
   <div class="wrap foot">
-    <span class="brand">DJ NE-HOT</span>
+    <span class="brand"><img class="logo-fade" src="assets/logo-sm.webp" alt="DJ Ne-Hot" width="84" height="56" loading="lazy"></span>
     <span>© 2026 DJ Ne-Hot · Tüm hakları saklıdır</span>
-    <span>Son güncelleme: 14 Kas 2026 · 08:46</span>
+    <span>Son güncelleme: 14 Kas 2026 · 08:59</span>
   </div>
 </footer>
 
