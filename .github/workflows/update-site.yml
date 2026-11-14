@@ -5,6 +5,9 @@ on:
     - cron: "*/30 * * * *"   # every 30 min: rebuild only if there is a new upload
     - cron: "15 3 * * *"     # daily 06:15 Istanbul: full refresh (views, likes, subs)
   workflow_dispatch:          # "Run workflow" button in the Actions tab = force rebuild
+  push:                       # design/script changed = rebuild right away
+    branches: [main]
+    paths: [".github/scripts/**", ".github/workflows/update-site.yml"]
 
 permissions:
   contents: write
@@ -29,7 +32,7 @@ jobs:
         id: build
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
-          FORCE: ${{ github.event_name == 'workflow_dispatch' || github.event.schedule == '15 3 * * *' }}
+          FORCE: ${{ github.event_name != 'schedule' || github.event.schedule == '15 3 * * *' }}
         run: python .github/scripts/build_site.py
 
       - name: Commit and push if changed
