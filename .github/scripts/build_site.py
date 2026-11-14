@@ -210,7 +210,7 @@ def build_html(ch, videos):
     hero_bg = thumb(latest["id"], "hqdefault") if latest else ch["banner"]
     jsonld = {
         "@context": "https://schema.org", "@type": "Person", "name": "DJ Ne-Hot",
-        "url": SITE_URL, "image": ch["avatar"], "jobTitle": "DJ",
+        "url": SITE_URL, "image": SITE_URL + "assets/logo.webp", "jobTitle": "DJ",
         "sameAs": [ch_url] + [u for u in SOCIAL_LINKS.values() if u],
     }
 
